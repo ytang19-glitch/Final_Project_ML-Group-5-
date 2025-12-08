@@ -118,8 +118,8 @@ python scripts/train.py \
 
 **Outputs**
 
-- models/best_model.joblib  
-- validation/test metrics printed in terminal  
+- Models/best_model.joblib  
+- Validation/test metrics printed in terminal  
 
 ---
 
@@ -134,8 +134,8 @@ python scripts/evaluate.py \
 
 **Outputs saved to `assets/`:**
 
-- best_model_prediction_plot.png  
-- monthly_mean_aqi.png  
+- Best_model_prediction_plot.png  
+- Monthly_mean_aqi.png  
 
 ---
 
@@ -149,8 +149,8 @@ python scripts/explain_shap.py \
 
 **Outputs saved to `assets/`:**
 
-- shap_bar_best_model.png  
-- shap_summary_best_model.png
+- Shap_bar_best_model.png  
+- Shap_summary_best_model.png
 
 **Notes on interpretation:**
 
