@@ -14,9 +14,10 @@ Model details, intended use, architecture, and ethical considerations are docume
   - ~15% validation  
   - ~15% test  
 
-### **Scripts used**
+### Scripts used
 
-- ** python scripts/train.py \**
+```bash
+python scripts/train.py \
     --data data/air_pollution_data.csv \
     --model linear \
     --horizon-days 3
@@ -29,8 +30,7 @@ python scripts/evaluate.py \
 python scripts/explain_shap.py \
     --data data/air_pollution_data.csv \
     --model-path models/best_model.joblib
-
----
+```
 
 ## 2. Quantitative Metrics
 
