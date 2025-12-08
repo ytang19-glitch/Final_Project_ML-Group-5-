@@ -95,6 +95,8 @@ Input CSV should contain (names may vary slightly):
 
 ---
 
+blib
+Outputs saved to assets/:
 ## How to run
 
 ### 1) Install environment
@@ -112,13 +114,13 @@ python scripts/train.py \
     --data data/air_pollution_data.csv \
     --model linear \
     --horizon-days 3
-Output
+Outputs
 
 models/best_model.joblib
 
-validation/test metrics in terminal
+validation/test metrics printed in terminal
 
-3) Evaluate (prediction plots + metrics)
+3) Evaluate (metrics + prediction plots)
 bash
 Copy code
 python scripts/evaluate.py \
@@ -143,28 +145,7 @@ shap_bar_best_model.png
 
 shap_summary_best_model.png
 
-Expected outputs
-Model metrics (validation & test)
+yaml
+Copy code
 
-True vs Predicted AQI curve
-
-Monthly AQI seasonal pattern
-
-SHAP bar & SHAP summary charts
-
-Final model card in docs/
-
-Evaluation summary in docs/
-
-Notes on interpretation
-AQI levels are discrete (1–5) → R² naturally moderate even with good MAE.
-
-Check SHAP:
-
-If any feature ranked highly is derived from future values, this indicates leakage.
-
-Time-split evaluation is mandatory; random splitting inflates results.
-
-Contact
-For questions regarding training scripts, modeling choices, or code structure:
-Your Name · Your Email / GitHub
+---
