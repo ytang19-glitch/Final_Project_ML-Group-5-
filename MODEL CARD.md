@@ -118,7 +118,6 @@ Metrics used:
 - R²  
 - Rounded Accuracy (if rounding to AQI levels 1–5)
 
-Fill in your actual numbers here:
 
 | Split | RMSE | MAE | MAPE | R² | Rounded Acc |
 |-------|------|------|--------|------|------------|
