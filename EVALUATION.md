@@ -34,19 +34,24 @@ python scripts/explain_shap.py \
 
 ## 2. Quantitative Metrics
 
-Replace `x.xx` with your actual results from running `train.py` and `evaluate.py`.
+The table below reports **test-set performance** for all candidate models.  
+Metrics are computed on the same held-out test split.
 
-| Split | RMSE | MAE | MAPE | R² | Rounded Accuracy |
-|------:|-----:|-----:|------:|----:|-----------------:|
-| Valid | x.xx | x.xx | x.xx | x.xx | x.xx |
-| Test  | x.xx | x.xx | x.xx | x.xx | x.xx |
+| Model            | RMSE  | MAE   | MAPE   | R²    |
+|------------------|:-----:|:-----:|:------:|:-----:|
+| Linear Regression| 0.968 | 0.693 | 26.968 | 0.336 |
+| XGBoost          | 1.014 | 0.744 | 29.517 | 0.273 |
+| Random Forest    | 1.023 | 0.757 | 30.077 | 0.260 |
+| GRU              | 1.092 | 0.802 | 30.604 | 0.157 |
+| Hybrid LSTM-GRU  | 1.110 | 0.819 | 32.004 | 0.128 |
+| LSTM             | 1.151 | 0.826 | 32.830 | 0.063 |
 
 ### Interpretation
 
-- **MAE < 1** → the average error is less than one AQI level, which is appropriate for discrete levels (1–5).  
-- **Rounded accuracy** reflects how often the model predicts the exact AQI class after rounding.  
-- **R² is expected to be modest** because AQI (1–5) has low variance and discrete values.
-
+- **Linear Regression** achieves the **lowest RMSE and MAE** and the **highest R²**, so it is selected as the final model.  
+- Deep learning models (GRU, LSTM, Hybrid) do not outperform the simpler linear baseline on this dataset and horizon.  
+- Errors (MAE ≈ 0.7–0.8) are **less than one AQI level on average**, which is reasonable given discrete labels (1–5).  
+- R² values are moderate for all models, which is expected because AQI has low variance and only five discrete levels.
 
 ## 3. Visual Evaluation
 
