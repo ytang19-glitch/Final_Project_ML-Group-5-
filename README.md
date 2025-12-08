@@ -47,7 +47,7 @@ Notes:
 
 ---
 
-## Repository layout (recommended)
+## Repository layout 
 ```
 .
 ├─ README.md
