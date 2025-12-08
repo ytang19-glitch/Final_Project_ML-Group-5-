@@ -151,4 +151,19 @@ python scripts/explain_shap.py \
 **Outputs saved to `assets/`:**
 
 - shap_bar_best_model.png  
-- shap_summary_best_model.png  
+- shap_summary_best_model.png
+
+**Notes on interpretation
+
+- AQI is discrete (1–5), so R² may appear modest even with low MAE.
+- SHAP should be checked for leakage:
+--Any feature relying on future values is a red flag.
+- Time-based splitting is mandatory; shuffling inflates performance.
+
+**Contact
+
+For questions regarding training scripts or modeling choices:
+Tangyujie • ytang19@ualberta.ca Email / GitHub
+
+
+---
