@@ -105,20 +105,20 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -U pip
 pip install -r requirements.txt
 pip install -e .
-2) Train the model (example)
+2) Train the model
 bash
 Copy code
 python scripts/train.py \
     --data data/air_pollution_data.csv \
     --model linear \
     --horizon-days 3
-Outputs:
+Output
 
-bash
-Copy code
 models/best_model.joblib
+
 validation/test metrics in terminal
-3) Evaluate (generate metrics + prediction plots)
+
+3) Evaluate (prediction plots + metrics)
 bash
 Copy code
 python scripts/evaluate.py \
@@ -146,20 +146,25 @@ shap_summary_best_model.png
 Expected outputs
 Model metrics (validation & test)
 
-True vs Predicted AQI plot
+True vs Predicted AQI curve
 
-SHAP bar & summary charts
+Monthly AQI seasonal pattern
 
-Monthly AQI risk curve
+SHAP bar & SHAP summary charts
 
-Final model card (in docs/)
+Final model card in docs/
 
-Evaluation markdown summary (in docs/)
+Evaluation summary in docs/
 
 Notes on interpretation
-AQI is discrete (1–5) → R² naturally tends to be moderate even if MAE is small.
+AQI levels are discrete (1–5) → R² naturally moderate even with good MAE.
 
 Check SHAP:
-if any feature derived from future or target leakage, treat as a red flag.
 
-Time-split is critical: random shuffling inflates performance artificially.
+If any feature ranked highly is derived from future values, this indicates leakage.
+
+Time-split evaluation is mandatory; random splitting inflates results.
+
+Contact
+For questions regarding training scripts, modeling choices, or code structure:
+Your Name · Your Email / GitHub
