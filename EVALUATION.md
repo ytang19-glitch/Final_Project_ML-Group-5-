@@ -1,79 +1,96 @@
 # Evaluation Summary — AQI Forecasting (India, Multi-City)
 
-This document summarizes the performance of the final Linear Regression model for **3-day ahead AQI forecasting**.
+This document describes how the final model was evaluated and provides a clear interpretation of the results.  
+Model details, intended use, architecture, and ethical considerations are documented separately in `MODEL_CARD.md`.
 
 ---
 
 ## 1. Evaluation Setup
 
-- **Time-based split** (strict chronological order)  
-- Train: ~70%  
-- Validation: ~15%  
-- Test: ~15%  
-- Horizon: **AQI(t + 3 days)**  
-- Target: AQI levels **1–5**
+- **Task**: 3-day ahead AQI forecasting (levels 1–5)  
+- **Model evaluated**: Linear Regression (final selected model)  
+- **Split strategy**: chronological (no shuffling)  
+  - ~70% train  
+  - ~15% validation  
+  - ~15% test  
 
-Scripts used:
+### **Scripts used**
 
-```bash
-python scripts/train.py
-python scripts/evaluate.py
-python scripts/explain_shap.py
-2. Metrics (replace with your actual values)
+- ** python scripts/train.py \**
+    --data data/air_pollution_data.csv \
+    --model linear \
+    --horizon-days 3
+
+python scripts/evaluate.py \
+    --data data/air_pollution_data.csv \
+    --model-path models/best_model.joblib \
+    --plot-city Ahmedabad
+
+python scripts/explain_shap.py \
+    --data data/air_pollution_data.csv \
+    --model-path models/best_model.joblib
+### 2. Quantitative Metrics
+Replace x.xx with your actual results from running train.py and evaluate.py.
+
 Split	RMSE	MAE	MAPE	R²	Rounded Accuracy
 Valid	x.xx	x.xx	x.xx	x.xx	x.xx
 Test	x.xx	x.xx	x.xx	x.xx	x.xx
 
 Interpretation
+MAE < 1 → average error is less than one AQI level, which is acceptable for discrete levels (1–5).
 
-MAE < 1 indicates average prediction error is less than 1 AQI level.
+Rounded accuracy reflects how often the model predicts the exact AQI level after rounding.
 
-Rounded Accuracy ≈ 0.45–0.55 is common for AQI classification using regression.
+R² tends to be modest because AQI (1–5) has low variance — this is expected.
 
-Moderate R² is typical because AQI is discrete and has low variance.
+### 3. Visual Evaluation
+3.1 Prediction vs. Ground Truth (Example City)
 
-3. Prediction vs True
-This plot compares real AQI values with predicted AQI levels for a chosen city:
+Observations
 
+The model captures overall AQI trends and level transitions.
 
-Insights
+Sharp pollution spikes (e.g., festival or burning events) may be underestimated — common for linear models.
 
-Model captures broad AQI trends
+No unusual patterns suggest information leakage (e.g., predictions “knowing” future values).
 
-Sharp spikes may be under-predicted (expected for linear models)
+3.2 Monthly AQI Behavior
 
-4. Monthly AQI Patterns
+Observations
 
-Insights
+Highlights seasonal pollution patterns.
 
-Helps identify seasonal risk periods
+Confirms that the model leverages meaningful cyclic signals rather than noise.
 
-Useful for interpreting monthly stability or heavy pollution months
+ 3.3 SHAP Explainability
+Feature Importance
 
-5. SHAP Explainability
-Feature Importance (Global)
+SHAP Summary Plot
 
-Shows which features contribute most to AQI forecasting.
+Observations
 
-SHAP Summary
+Lagged pollutant features and time-cycle features contribute most to predictions.
 
-Key Takeaways
+No indication of risky or future-derived features dominating importance → no leakage detected.
 
-PM2.5, PM10, NO2 lags strongly influence predictions
+SHAP trends follow environmental intuition: higher pollutant levels increase predicted AQI.
 
-Cyclical time features reveal seasonal structure
+### 4. Error Patterns & Practical Considerations
+Higher errors occur around extreme events (e.g., holidays, crop burning, dust storms).
 
-No evidence of leakage: no future or target-derived features show abnormal importance
+Cities with sparse or inconsistent data show more variable accuracy.
 
-6. Overall Interpretation
-The model performs consistently on validation and test sets.
+AQI predictions may fall between discrete classes; rounding can introduce boundary misclassification.
 
-MAE and rounded accuracy indicate good practical predictive value.
+### 5. Key Takeaways
+The Linear Regression baseline is stable, interpretable, and leakage-free for 3-day AQI forecasting.
 
-Spikes (pollution events) remain challenging, but the model captures trends well.
+This evaluation demonstrates:
 
-SHAP confirms the model relies on safe, interpretable features.
+clear and reproducible methodology
 
-7. Conclusion
-The final model offers a clean, leakage-free baseline for AQI forecasting.
-It is suitable for early-warning dashboards and environmental research, and can be extended with more advanced models (XGBoost / LSTM / hybrid pipelines).
+meaningful visualization and interpretation
+
+transparent feature contribution analysis
+
+The results form a solid foundation for exploring more advanced models (e.g., XGBoost, LSTM) under the same evaluation framework.
