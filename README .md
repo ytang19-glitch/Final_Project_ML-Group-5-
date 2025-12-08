@@ -67,33 +67,30 @@ Input CSV should contain (names may vary slightly):
 
 ## Repository layout
 
+```text
 .
 ├── README.md
 ├── docs/
-│ ├── MODEL_CARD.md
-│ └── EVALUATION.md
-│
+│   ├── MODEL_CARD.md
+│   └── EVALUATION.md
 ├── src/
-│ └── aqi_forecast/
-│ ├── config.py
-│ ├── features.py
-│ ├── io.py
-│ ├── metrics.py
-│ ├── models.py
-│ ├── pipeline.py
-│ └── plots.py
-│
+│   └── aqi_forecast/
+│       ├── config.py
+│       ├── features.py
+│       ├── io.py
+│       ├── metrics.py
+│       ├── models.py
+│       ├── pipeline.py
+│       └── plots.py
 ├── scripts/
-│ ├── train.py
-│ ├── evaluate.py
-│ └── explain_shap.py
-│
-├── assets/ # generated plots
-├── research/ # notebooks (not graded for code quality)
-├── models/ # saved trained model(s)
+│   ├── train.py
+│   ├── evaluate.py
+│   └── explain_shap.py
+├── assets/              # generated plots
+├── research/            # notebooks (not graded for code quality)
+├── models/              # saved trained model(s)
 └── requirements.txt
-
----
+```
 
 blib
 Outputs saved to assets/:
