@@ -93,9 +93,6 @@ Input CSV should contain (names may vary slightly):
 ├── models/ # saved trained model(s)
 └── requirements.txt
 
-yaml
-Copy code
-
 ---
 
 ## How to run
