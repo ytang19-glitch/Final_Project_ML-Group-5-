@@ -67,3 +67,117 @@ All rolling & lag features strictly use **past-only information**, ensuring no f
 
 ### Final model
 - **Linear Regression** inside a scikit-learn Pipeline:
+Preprocessing:
+
+Numeric imputation → StandardScaler
+
+City → OneHotEncoder (ignore unseen)
+Model:
+
+LinearRegression()
+
+
+### Alternative models tested
+- Random Forest  
+- Gradient Boosting (optional)  
+- RNN / LSTM (research only, not final)  
+
+Linear Regression was selected for:
+- stability  
+- interpretability  
+- better leakage robustness  
+- consistent performance across cities  
+
+---
+
+## 6. Training Procedure
+
+### Split Strategy
+- Time-based split (no shuffle)
+- ~70% train  
+- ~15% validation  
+- ~15% test  
+
+### Horizon
+- 3-day ahead forecast
+
+### Environment
+- Python 3.9+
+- scikit-learn
+- numpy / pandas
+- SHAP for explainability
+
+---
+
+## 7. Evaluation Metrics
+
+Metrics used:
+- RMSE  
+- MAE  
+- MAPE  
+- R²  
+- Rounded Accuracy (if rounding to AQI levels 1–5)
+
+Fill in your actual numbers here:
+
+| Split | RMSE | MAE | MAPE | R² | Rounded Acc |
+|-------|------|------|--------|------|------------|
+| Valid | x.xx | x.xx | x.xx | x.xx | x.xx |
+| Test  | x.xx | x.xx | x.xx | x.xx | x.xx |
+
+---
+
+## 8. Visual Evaluation
+
+### Prediction vs True  
+![Prediction](../assets/best_model_prediction_plot.png)
+
+---
+
+### Monthly Mean AQI Trend  
+![Monthly](../assets/monthly_mean_aqi.png)
+
+---
+
+### SHAP Feature Importance  
+![SHAP bar](../assets/shap_bar_best_model.png)
+
+---
+
+### SHAP Summary (global effects)  
+![SHAP summary](../assets/shap_summary_best_model.png)
+
+---
+
+## 9. Ethical Considerations
+
+- AQI data coverage across cities may be uneven → potential bias.  
+- Predictions should not be used for **legal or medical** decisions.  
+- Models must be updated as pollution patterns change.  
+- Use caution when communicating AQI predictions to general public.  
+
+---
+
+## 10. Limitations
+
+- AQI levels are discrete (1–5), so regression may smooth sharp peaks.  
+- Sudden events (dust storms, crop burning, fireworks) may be hard to forecast.  
+- Some cities with fewer records have lower performance.  
+
+---
+
+## 11. Recommendations
+
+- Retrain model monthly or quarterly  
+- Consider XGBoost / LightGBM for improved peak capturing  
+- Deploy as nightly batch forecast  
+- Use SHAP monitoring to detect data drift  
+
+---
+
+## 12. References
+
+- Model Cards: https://modelcards.withgoogle.com/about  
+- Mitchell et al. (2019): *Model Cards for Model Reporting*  
+- Kaggle Model Card Templates  
+
