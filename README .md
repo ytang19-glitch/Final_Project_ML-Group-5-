@@ -51,8 +51,7 @@ Input CSV should contain (names may vary slightly):
 
 ### **Models**
 - Classical ML:
-  - Linear Regression (final selected model)
-  - Random Forest (optional alternatives)
+  - Linear Regression (best model)
 - Explainability:
   - **SHAP** (bar + summary chart)
 
