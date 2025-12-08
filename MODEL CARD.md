@@ -34,7 +34,7 @@ Because air-quality data is time-ordered, leakage can inflate scores if future i
   - Rounded-level MAE after rounding/clipping predictions to [1,5]
   - Rounded-level accuracy (exact level match)
 
-## Quantitative results (example)
+## Quantitative results
 Results vary by city/time period; the numbers below are from one experiment run.
 - **AQI unique values:** {1,2,3,4,5}
 - **Baseline (predict train mean):** R² ≈ 0
