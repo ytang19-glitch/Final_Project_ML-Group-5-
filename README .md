@@ -107,45 +107,51 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -U pip
 pip install -r requirements.txt
 pip install -e .
-2) Train the model
-bash
-Copy code
+```
+
+---
+
+### 2) Train the model
+
+```bash
 python scripts/train.py \
     --data data/air_pollution_data.csv \
     --model linear \
     --horizon-days 3
-Outputs
+```
 
-models/best_model.joblib
+**Outputs**
 
-validation/test metrics printed in terminal
+- models/best_model.joblib  
+- validation/test metrics printed in terminal  
 
-3) Evaluate (metrics + prediction plots)
-bash
-Copy code
+---
+
+### 3) Evaluate (metrics + prediction plots)
+
+```bash
 python scripts/evaluate.py \
     --data data/air_pollution_data.csv \
     --model-path models/best_model.joblib \
     --plot-city Ahmedabad
-Outputs saved to assets/:
+```
 
-best_model_prediction_plot.png
+**Outputs saved to `assets/`:**
 
-monthly_mean_aqi.png
+- best_model_prediction_plot.png  
+- monthly_mean_aqi.png  
 
-4) SHAP explainability (feature safety)
-bash
-Copy code
+---
+
+### 4) SHAP explainability (feature safety)
+
+```bash
 python scripts/explain_shap.py \
     --data data/air_pollution_data.csv \
     --model-path models/best_model.joblib
-Outputs saved to assets/:
+```
 
-shap_bar_best_model.png
+**Outputs saved to `assets/`:**
 
-shap_summary_best_model.png
-
-yaml
-Copy code
-
----
+- shap_bar_best_model.png  
+- shap_summary_best_model.png  
