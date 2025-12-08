@@ -112,17 +112,19 @@ Linear Regression was selected for:
 ## 7. Evaluation Metrics
 
 Metrics used:
+
 - RMSE  
 - MAE  
 - MAPE  
 - R²  
-- Rounded Accuracy (if rounding to AQI levels 1–5)
 
+Final model performance (Linear Regression) on the held-out **test set**:
 
-| Split | RMSE | MAE | MAPE | R² | Rounded Acc |
-|-------|------|------|--------|------|------------|
-| Valid | x.xx | x.xx | x.xx | x.xx | x.xx |
-| Test  | x.xx | x.xx | x.xx | x.xx | x.xx |
+| Split | RMSE  | MAE   | MAPE   | R²    |
+|------:|:-----:|:-----:|:------:|:-----:|
+| Test  | 0.968 | 0.693 | 26.968 | 0.336 |
+
+> A full comparison against other candidates (XGBoost, Random Forest, GRU, LSTM, Hybrid LSTM-GRU) is provided in `EVALUATION.md`.
 
 ---
 
