@@ -86,7 +86,7 @@ Input CSV should contain (names may vary slightly):
 │   ├── evaluate.py
 │   └── explain_shap.py
 ├── assets/              # generated plots
-├── research/            # notebooks (not graded for code quality)
+├── research/           
 ├── models/              # saved trained model(s)
 └── requirements.txt
 ```
