@@ -130,23 +130,20 @@ Final model performance (Linear Regression) on the held-out **test set**:
 
 ## 8. Visual Evaluation
 
-### Prediction vs True  
-![Prediction](../RESULT/best_model_prediction_plot.png)
+---
+
+### Prediction vs True
+![Prediction](Best Model Forecast Plot.png)
 
 ---
 
-### Monthly Mean AQI Trend  
-![Monthly](../assets/monthly_mean_aqi.png)
+### Monthly Mean AQI Trend
+![Monthly](Event vs Non-event mean AQI.png)
 
 ---
 
-### SHAP Feature Importance  
-![SHAP bar](../assets/shap_bar_best_model.png)
-
----
-
-### SHAP Summary (global effects)  
-![SHAP summary](../assets/shap_summary_best_model.png)
+### SHAP Feature Importance
+![SHAP bar](SHAP value.png)
 
 ---
 
