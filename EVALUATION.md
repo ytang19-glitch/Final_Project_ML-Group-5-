@@ -57,7 +57,7 @@ Metrics are computed on the same held-out test split.
 
 ### 3.1 Prediction vs. Ground Truth (Example City)
 
-![Prediction vs true](../assets/best_model_prediction_plot.png)
+![Prediction](Best%20Model%20Forecast%20Plot.png)
 
 **Observations**
 - The model captures overall AQI trends and transitions between levels.  
@@ -68,7 +68,7 @@ Metrics are computed on the same held-out test split.
 
 ### 3.2 Monthly AQI Behavior
 
-![Monthly AQI](../assets/monthly_mean_aqi.png)
+![Monthly](monthly_mean_aqi.png)
 
 **Observations**
 - Seasonal variations in AQI are clearly visible.  
@@ -82,7 +82,7 @@ Metrics are computed on the same held-out test split.
 ![SHAP bar](../assets/shap_bar_best_model.png)
 
 #### SHAP Summary Plot  
-![SHAP summary](../assets/shap_summary_best_model.png)
+![SHAP bar](SHAP%20value.png)
 
 **Observations**
 - Lagged pollutant variables and time–cycle features contribute most to predictions.  
