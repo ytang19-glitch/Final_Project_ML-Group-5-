@@ -131,7 +131,7 @@ Final model performance (Linear Regression) on the held-out **test set**:
 ## 8. Visual Evaluation
 
 ### Prediction vs True  
-![Prediction](../assets/best_model_prediction_plot.png)
+![Prediction](../RESULT/best_model_prediction_plot.png)
 
 ---
 
