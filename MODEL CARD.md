@@ -147,11 +147,6 @@ Final model performance (Linear Regression) on the held-out **test set**:
 
 ---
 
-### SHAP Summary (global effects)
-![SHAP summary](SHAP%20value.png)
-
----
-
 ## 9. Ethical Considerations
 
 - AQI data coverage across cities may be uneven → potential bias.  
