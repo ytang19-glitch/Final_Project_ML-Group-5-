@@ -138,7 +138,7 @@ Final model performance (Linear Regression) on the held-out **test set**:
 ---
 
 ### Monthly Mean AQI Trend
-![Monthly](Event%20vs%20Non-event%20mean%20AQI.PNG)
+![Monthly](Event%20vs%20Non-event%20mean%20AQI.png)
 
 ---
 
