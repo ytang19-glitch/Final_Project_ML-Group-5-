@@ -18,20 +18,21 @@ Our main configuration uses **3-day ahead forecasting**, created by shifting the
 
 ## Data format
 
-Input CSV should contain (names may vary slightly):
+The input CSV is expected to contain the following columns (names may vary slightly):
 
-- `City` (categorical)
-- `date` / `datetime` (timestamp)
-- pollutant features:  
-  `PM2.5`, `PM10`, `NO2`, `SO2`, `CO`, `O3`
-- weather features (if available):  
-  temperature, humidity, wind speed, pressure, rainfall
-- `aqi` (target: discrete levels **1–5**)
+- `City` *(categorical)*  
+- `date` / `datetime` *(timestamp)*  
+- **Pollutant features:**
+  - `PM2.5`, `PM10`, `NO2`, `SO2`, `CO`, `O3`
+- **Weather features (if available):**
+  - temperature, humidity, wind speed, pressure, rainfall
+- `AQI` *(target: discrete levels 1–5)*  
 
 **Notes**
-- When predicting AQI, using pollutants from the **same timestamp** is allowed.  
-- Do **not** use any PM2.5 → AQI formula or AQI-from-PM features (that is leakage).  
-- All feature engineering is done using **shifted** and **rolling (past-only)** windows.
+
+- When predicting AQI, using pollutant measurements from the **same timestamp** is allowed.  
+- We **do not** use any PM2.5 → AQI formula or AQI-from-PM features (to avoid label leakage).  
+- All feature engineering uses **shifted and rolling past-only windows** (lags, rolling means) so the model never sees future information at training time.
 
 ---
 
