@@ -68,27 +68,28 @@ Input CSV should contain (names may vary slightly):
 
 ```text
 .
-├── README.md
-├── docs/
-│   ├── MODEL_CARD.md
-│   └── EVALUATION.md
+├── README.md                         
+├── requirements.txt                  
+├── MODEL_CARD.md                      
+├── EVALUATION.md                      
+├── Technical_Description_of_the_Proposed_Approach.md
+├── Exploratory_Data_Analysis.ipynb 
 ├── src/
 │   └── aqi_forecast/
+│       ├── __init__.py
 │       ├── config.py
 │       ├── features.py
-│       ├── io.py
-│       ├── metrics.py
 │       ├── models.py
+│       ├── metrics.py
 │       ├── pipeline.py
+│       ├── io.py
 │       └── plots.py
 ├── scripts/
 │   ├── train.py
 │   ├── evaluate.py
 │   └── explain_shap.py
-├── assets/              # generated plots
-├── research/           
-├── models/              # saved trained model(s)
-└── requirements.txt
+
+                     
 ```
 
 blib
