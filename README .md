@@ -91,7 +91,7 @@ The input CSV is expected to contain the following columns (names may vary sligh
 │   └── explain_shap.py
 ├── RESULTS
 │   ├── Best Model Forecast Plot
-│   ├── Event vs Non-event mean AQl
+│   ├── Monthly Mean AQI Trend
 │   └── SHAP value
 
                      
