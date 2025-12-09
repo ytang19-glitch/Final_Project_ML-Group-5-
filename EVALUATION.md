@@ -78,9 +78,6 @@ Metrics are computed on the same held-out test split.
 
 ### 3.3 SHAP Explainability
 
-#### Feature Importance  
-![SHAP bar](../assets/shap_bar_best_model.png)
-
 #### SHAP Summary Plot  
 ![SHAP bar](SHAP%20value.png)
 
