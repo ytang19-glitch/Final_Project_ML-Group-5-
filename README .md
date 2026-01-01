@@ -1,5 +1,4 @@
-# AQI Forecasting (India, Multi-City) — Final Project (Group 5)
-
+# AQI Forecasting (India, Multi-City)
 This repository predicts short-term **Air Quality Index (AQI, levels 1–5)** for multiple Indian cities using public air-pollution and meteorological data.
 
 Our main configuration uses **3-day ahead forecasting**, created by shifting the target to **AQI(t + 3 days)** while strictly using **only past & present features** (no future leakage).
