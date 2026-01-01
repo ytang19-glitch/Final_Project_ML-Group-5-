@@ -1,7 +1,20 @@
-# AQI Forecasting (India, Multi-City)
-This repository predicts short-term **Air Quality Index (AQI, levels 1–5)** for multiple Indian cities using public air-pollution and meteorological data.
+## AQI Forecasting for Decision Support (India, Multi-City)
 
-Our main configuration uses **3-day ahead forecasting**, created by shifting the target to **AQI(t + 3 days)** while strictly using **only past & present features** (no future leakage).
+This project explores how **interpretable machine learning can support short-term environmental decision-making under noisy, real-world data conditions**.
+
+Using public air pollution and meteorological data from multiple Indian cities, we develop a **leakage-safe, time-series forecasting pipeline** to predict Air Quality Index (AQI, levels 1–5) up to **3 days ahead**. The focus is not only on predictive accuracy, but on **robustness, explainability, and operational safety**, which are critical when deploying AI in real-world systems.
+
+Rather than relying on black-box models or AQI conversion formulas, this project emphasizes **past-only feature engineering, transparent models, and SHAP-based interpretability** to understand *why* predictions are made and *when* they can be trusted.
+
+---
+## Why This Matters
+
+In many production and environmental monitoring systems, data is noisy, incomplete, and influenced by physical processes. Overly complex models can easily overfit or leak future information, leading to misleading performance.
+
+This project demonstrates how:
+- Careful time-aware data handling prevents false confidence
+- Interpretable models can support early-warning and planning decisions
+- AI can **assist**, rather than replace, domain-driven decision-making
 
 ---
 
@@ -35,7 +48,8 @@ The input CSV is expected to contain the following columns (names may vary sligh
 
 ---
 
-## Pipeline summary (matches our clean training code)
+## Pipeline summary 
+The pipeline is designed to mirror real deployment constraints, ensuring that no future information is available at training or inference time.
 
 ### **Split**
 - Time-ordered split only (no shuffle).  
@@ -51,7 +65,8 @@ The input CSV is expected to contain the following columns (names may vary sligh
 
 ### **Models**
 - Classical ML:
-  - Linear Regression (best model)
+  - Linear Regression (best model)：A linear regression model was selected as the final model due to its strong performance, stability across cities, and interpretability, which are essential for trustworthy deployment in real-world decision support systems.
+
 - Explainability:
   - **SHAP** (bar + summary chart)
 
@@ -164,6 +179,15 @@ python scripts/explain_shap.py \
 - SHAP should be checked for leakage:
 --Any feature relying on future values is a red flag.
 - Time-based splitting is mandatory; shuffling inflates performance.
+
+## Key Learnings
+
+This project reinforced that in applied machine learning:
+- Preventing data leakage is often more important than model complexity
+- Simple, interpretable models can outperform complex ones when data is noisy
+- Explainability tools such as SHAP are essential for validating feature safety
+- AI systems are most effective when designed to support, not replace, human decision-making
+
 
 **Contact:**
 
